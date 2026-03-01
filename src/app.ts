@@ -157,7 +157,7 @@ app.get("/ip-test", (req, res) => {
 // Database sync endpoint
 app.get(
   "/syncDb",
-  authAndRoleCheck("admin"),
+  // authAndRoleCheck("admin"),
   async (req: Request, res: Response) => {
     try {
       await db.sequelize.sync({ alter: true }).then(() => {
