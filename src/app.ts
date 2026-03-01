@@ -65,12 +65,9 @@ app.use(
       if (!origin) return callback(null, true);
 
       const allowedOrigins = [
-        "https://staging.easybuy.com",
-        "https://admin.easybuy.com",
-        "https://easybuy.com",
+        "https://easy-buy-frontend-oqpg5wxq8-naitikkoladiya-2072s-projects.vercel.app",
         "http://localhost:3000",
         "http://localhost:3001",
-        "https://www.easybuy.com",
       ];
 
       if (allowedOrigins.some((o) => origin.startsWith(o))) {
