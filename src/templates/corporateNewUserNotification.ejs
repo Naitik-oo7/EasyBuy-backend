@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New User AWaiting Approval - Easy Buy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      font-family: 'Lato', Arial, sans-serif;
+      color: #333;
+    "
+  >
+    <table
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      style="
+        max-width: 800px;
+        background: #ffffff;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-radius: 16px;
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <tr>
+        <td
+          style="
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <table width="100%" style="border-collapse: collapse">
+            <tr>
+              <td style="vertical-align: middle">
+                <img
+                  src="/img/logo.png"
+                  alt="Easy Buy"
+                  style="height: 40px; display: block"
+                />
+              </td>
+              <td
+                align="right"
+                style="
+                  text-align: right;
+                  font-size: 12px;
+                  color: #ffffff;
+                  line-height: 1.6;
+                "
+              >
+                <div>7777901997</div>
+                <div>onlinesupport@easybuy.com</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Main Content -->
+      <tr>
+        <td style="padding: 30px; font-size: 15px; line-height: 1.6">
+          <h2
+            style="
+              margin: 0 0 20px;
+              font-size: 22px;
+              font-weight: 700;
+              color: #000;
+            "
+          >
+            New User Awaiting Approval
+          </h2>
+
+          <p>Dear Admin,</p>
+
+          <p>
+            A new user has successfully registered on the corporate login portal
+            and is awaiting approval.
+          </p>
+
+          <div
+            style="
+              background-color: #f0f0f0;
+              padding: 20px;
+              border-radius: 8px;
+              margin: 25px 0;
+            "
+          >
+            <h3 style="margin-top: 0; color: #000">
+              User Registration Details:
+            </h3>
+            <p style="margin: 5px 0"><strong>Name:</strong> <%= userName %></p>
+            <p style="margin: 5px 0">
+              <strong>Contact Number:</strong> <%= userMobile %>
+            </p>
+            <p style="margin: 5px 0">
+              <strong>Email ID:</strong> <%= userEmail %>
+            </p>
+            <p style="margin: 5px 0">
+              <strong>Designation:</strong> <%= userDesignation %>
+            </p>
+          </div>
+
+          <p>
+            Please review the registration details and approve the request from
+            the admin panel.
+          </p>
+
+          <p style="text-align: center; margin: 30px 0">
+            <a
+              href="<%= corporateDashboardUrl %>"
+              style="
+                background: #000000;
+                color: #ffffff;
+                padding: 12px 28px;
+                border-radius: 50px;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 600;
+                text-decoration: none;
+              "
+            >
+              View & Approve User
+            </a>
+          </p>
+
+          <p style="margin-top: 30px">
+            This is an automated message. Please do not reply to this email.
+          </p>
+
+          <p style="margin-top: 10px">
+            Regards,<br />
+            <strong>Easy Buy</strong>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

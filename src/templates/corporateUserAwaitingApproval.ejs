@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Account Awaiting Approval - Uniform Bucket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      font-family: 'Lato', Arial, sans-serif;
+      color: #333;
+    "
+  >
+    <table
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      style="
+        max-width: 800px;
+        background: #ffffff;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-radius: 16px;
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <tr>
+        <td
+          style="
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <table width="100%" style="border-collapse: collapse">
+            <tr>
+              <td style="vertical-align: middle">
+                <img
+                  src="/img/logo.png"
+                  alt="Easy Buy"
+                  style="height: 40px; display: block"
+                />
+              </td>
+              <td
+                align="right"
+                style="
+                  text-align: right;
+                  font-size: 12px;
+                  color: #ffffff;
+                  line-height: 1.6;
+                "
+              >
+                <div>7777901997</div>
+                <div>onlinesupport@easybuy.com</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Main Content -->
+      <tr>
+        <td style="padding: 30px; font-size: 15px; line-height: 1.6">
+          <h2
+            style="
+              margin: 0 0 20px;
+              font-size: 22px;
+              font-weight: 700;
+              color: #000;
+            "
+          >
+            Account Awaiting Approval
+          </h2>
+
+          <p>Hello <%= userName %>,</p>
+
+          <p>
+            Thank you for registering with Uniform Bucket as a corporate user
+            under
+            <strong><%= corporateName %></strong>.
+          </p>
+
+          <p>
+            Your account is currently awaiting approval from your corporate
+            administrator. Once approved, you will receive another email
+            notification and will be able to log in to your account.
+          </p>
+
+          <p>
+            If you have any questions or concerns, please contact your corporate
+            administrator or reach out to our support team.
+          </p>
+
+          <div
+            style="
+              background-color: #f0f0f0;
+              padding: 20px;
+              border-radius: 8px;
+              margin: 25px 0;
+            "
+          >
+            <h3 style="margin-top: 0; color: #000">Account Details</h3>
+            <p style="margin: 5px 0"><strong>Name:</strong> <%= userName %></p>
+            <p style="margin: 5px 0">
+              <strong>Email:</strong> <%= userEmail %>
+            </p>
+            <p style="margin: 5px 0">
+              <strong>Corporate:</strong> <%= corporateName %>
+            </p>
+            <p style="margin: 5px 0">
+              <strong>Status:</strong> Awaiting Approval
+            </p>
+          </div>
+
+          <p style="margin-top: 30px">
+            Best regards,<br />
+            <strong>The Easy Buy Team</strong>
+          </p>
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td
+          style="
+            background: #f0f0f0;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+          "
+        >
+          <p style="margin: 0">
+            &copy; <%= new Date().getFullYear() %> Easy Buy. All rights
+            reserved.
+          </p>
+          <p style="margin: 5px 0 0">
+            RZ 448A, Street No 14B, Tughlakabad Extension, New Delhi -110019
+          </p>
+          <p style="margin: 5px 0 0">
+            <a
+              href="https://www.easybuy.com"
+              style="color: #000; text-decoration: none"
+              >www.easybuy.com</a
+            >
+          </p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

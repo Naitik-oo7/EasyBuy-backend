@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>New Inquiry - Uniform Bucket</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        font-family: "Lato", Arial, sans-serif;
+      }
+      img {
+        border: 0;
+        display: block;
+        line-height: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0; background: #f5f5f5">
+    <center style="width: 100%; background: #f5f5f5">
+      <!-- OUTER WRAPPER -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="center" style="padding: 40px 0">
+            <!-- MAIN CONTAINER -->
+            <table
+              width="720"
+              cellpadding="0"
+              cellspacing="0"
+              border="0"
+              style="
+                max-width: 720px;
+                background: #ffffff;
+                border-radius: 16px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+              "
+            >
+              <!-- BANNER -->
+              <tr>
+                <td
+                  align="center"
+                  style="background: #1a73e8; padding: 24px; color: #ffffff"
+                >
+                  <h1 style="margin: 0; font-size: 24px; font-weight: 700">
+                    New Inquiry Received
+                  </h1>
+                  <p style="margin: 8px 0 0; font-size: 16px; opacity: 0.9">
+                    A new inquiry has been submitted through the website
+                  </p>
+                </td>
+              </tr>
+
+              <!-- MAIN CONTENT -->
+              <tr>
+                <td style="padding: 30px; font-family: Lato, Arial">
+                  <h2
+                    style="
+                      margin: 0 0 20px;
+                      font-size: 20px;
+                      font-weight: 700;
+                      color: #000;
+                    "
+                  >
+                    Inquiry Details
+                  </h2>
+
+                  <table
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    border="0"
+                    style="font-size: 15px; color: #333"
+                  >
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Name:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= name %>
+                      </td>
+                    </tr>
+                    <% if (companyName) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Company Name:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= companyName %>
+                      </td>
+                    </tr>
+                    <% } %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Mobile:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= mobile %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Type:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= type %>
+                      </td>
+                    </tr>
+                    <% if (category) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Category:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= category %>
+                      </td>
+                    </tr>
+                    <% } %> <% if (noOfUniform) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>No. of Uniforms:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= noOfUniform %>
+                      </td>
+                    </tr>
+                    <% } %> <% if (isReselling) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Reselling:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        Yes
+                      </td>
+                    </tr>
+                    <% } %> <% if (sourcePage) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Source Page:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= sourcePage %>
+                      </td>
+                    </tr>
+                    <% } %> <% if (description) { %>
+                    <tr>
+                      <td
+                        style="
+                          padding: 8px 0;
+                          border-bottom: 1px solid #eee;
+                          vertical-align: top;
+                        "
+                      >
+                        <strong>Description:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= description %>
+                      </td>
+                    </tr>
+                    <% } %> <% if (product) { %>
+                    <tr>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <strong>Product:</strong>
+                      </td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee">
+                        <%= product.title %> (<%= product.sku %>)
+                      </td>
+                    </tr>
+                    <% } %>
+                  </table>
+
+                  <% if (imageUrl) { %>
+                  <div style="margin-top: 24px">
+                    <h3
+                      style="
+                        margin: 0 0 12px;
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: #000;
+                      "
+                    >
+                      Attached Image
+                    </h3>
+                    <img
+                      src="<%= imageUrl %>"
+                      style="
+                        max-width: 100%;
+                        height: auto;
+                        border: 1px solid #eee;
+                      "
+                      alt="Inquiry Image"
+                    />
+                  </div>
+                  <% } %>
+
+                  <div style="margin-top: 30px; text-align: center">
+                    <p style="font-size: 14px; color: #666">
+                      This inquiry was submitted on <%= createdAt %>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- FOOTER -->
+              <tr>
+                <td
+                  style="
+                    background: #f5f5f5;
+                    padding: 20px;
+                    text-align: center;
+                    font-size: 13px;
+                    color: #666;
+                    font-family: Lato, Arial;
+                  "
+                >
+                  <p style="margin: 0">
+                    This email was sent from the Easy Buy inquiry form.
+                  </p>
+                  <p style="margin: 4px 0 0">
+                    © <%= new Date().getFullYear() %> Easy Buy. All rights
+                    reserved.
+                  </p>
+                </td>
+              </tr>
+            </table>
+            <!-- END MAIN CONTAINER -->
+          </td>
+        </tr>
+      </table>
+      <!-- END OUTER WRAPPER -->
+    </center>
+  </body>
+</html>

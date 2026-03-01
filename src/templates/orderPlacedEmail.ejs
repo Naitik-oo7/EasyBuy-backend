@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Order with Easy Buy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      font-family: 'Lato', Arial, sans-serif;
+      color: #333;
+    "
+  >
+    <table
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+      style="
+        max-width: 800px;
+        background: #ffffff;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-radius: 16px;
+        overflow: hidden;
+      "
+    >
+      <!-- Header -->
+      <tr>
+        <td
+          style="
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <table width="100%" style="border-collapse: collapse">
+            <tr>
+              <td style="vertical-align: middle">
+                <img
+                  src="/img/logo.png"
+                  alt="Easy Buy"
+                  style="height: 40px; display: block"
+                />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Shipping and Order Info -->
+      <tr>
+        <td style="padding: 25px 30px; font-size: 13px">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="60%" style="vertical-align: top">
+                <strong
+                  style="
+                    display: block;
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                    color: #000;
+                  "
+                  >Shipping address</strong
+                >
+                <div style="line-height: 1.6; color: #333">
+                  <div><%= customerName %></div>
+                  <div><%= customerAddress %></div>
+                  <div>
+                    <%= customerCity %>, <%= customerState %> -
+                    <%=customerPincode %>
+                  </div>
+                  <div><%= customerPhone %></div>
+                  <div><%= customerEmail %></div>
+                  <div>
+                    <strong>Dispatch in:</strong> <%= expectedDeliverDate %>
+                  </div>
+                </div>
+              </td>
+
+              <td width="40%" style="text-align: right; vertical-align: top">
+                <div style="font-size: 13px; line-height: 1.8">
+                  <div><strong>PI:</strong> #<%= orderNumber %></div>
+                  <div><strong>Date:</strong> <%= orderDate %></div>
+                </div>
+                <a
+                  href="<%= invoiceDownloadLink  %>"
+                  style="
+                    display: inline-block;
+                    background: #ffffff;
+                    color: #000;
+                    border: 1px solid #333;
+                    padding: 6px 12px;
+                    text-decoration: none;
+                    font-size: 12px;
+                    border-radius: 4px;
+                    margin-top: 8px;
+                  "
+                >
+                  PROFORMA INVOICE
+                </a>
+                <% if (isReceiver) { %>
+                <div style="margin-top: 10px">
+                  <a
+                    href="<%= orderFormLink %>"
+                    style="
+                      display: inline-block;
+                      background: #ffffff;
+                      border: 1px solid #333;
+                      color: #000;
+                      padding: 6px 12px;
+                      font-size: 12px;
+                      text-decoration: none;
+                      border-radius: 4px;
+                      margin-right: 8px;
+                    "
+                  >
+                    ORDER FORM
+                  </a>
+
+                  <a
+                    href="<%= packingSlipLink %>"
+                    style="
+                      display: inline-block;
+                      background: #ffffff;
+                      border: 1px solid #333;
+                      color: #000;
+                      padding: 6px 12px;
+                      font-size: 12px;
+                      text-decoration: none;
+                      border-radius: 4px;
+                    "
+                  >
+                    PACKING SLIP
+                  </a>
+                </div>
+                <% } %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Items Table -->
+      <tr>
+        <td style="padding: 0 30px 20px 30px">
+          <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              border-collapse: collapse;
+              border: 1px solid #ddd;
+              font-size: 12px;
+            "
+          >
+            <thead>
+              <tr style="background: #333; color: #fff">
+                <th align="left" style="padding: 8px">S. No.</th>
+                <th align="left" style="padding: 8px">Product</th>
+                <th align="left" style="padding: 8px">Description</th>
+                <th align="left" style="padding: 8px">Qty.</th>
+                <th align="left" style="padding: 8px">Price</th>
+                <th align="left" style="padding: 8px">Embroidery</th>
+                <th align="left" style="padding: 8px">GST</th>
+                <th align="left" style="padding: 8px">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%- itemsHTML %>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Summary Section -->
+      <tr>
+        <td style="padding: 0 30px 15px 30px">
+          <table
+            width="100%"
+            style="
+              border: 1px solid #ddd;
+              border-top: none;
+              border-collapse: collapse;
+            "
+          >
+            <tr>
+              <td
+                style="
+                  padding: 12px 16px;
+                  font-weight: 700;
+                  font-size: 14px;
+                  vertical-align: top;
+                "
+              >
+                Order Summary
+              </td>
+              <td style="width: 40%; padding: 10px 16px">
+                <table width="100%" style="font-size: 12px">
+                  <tr>
+                    <td>Product Sub Total</td>
+                    <td align="right"><%= productSubTotal %></td>
+                  </tr>
+
+                  <% if (embroideryTotalRaw > 0) { %>
+                  <tr>
+                    <td>Embroidery Charges</td>
+                    <td align="right"><%= embroideryDisplay %></td>
+                  </tr>
+                  <% } %> <% if (couponDiscountRaw > 0) { %>
+                  <tr>
+                    <td>Coupon Discount</td>
+                    <td align="right">-<%= couponDiscountDisplay %></td>
+                  </tr>
+                  <% } %>
+
+                  <tr>
+                    <td><%= gstTypeLabel %></td>
+                    <td align="right"><%= productGstAmountDisplay %></td>
+                  </tr>
+
+                  <tr>
+                    <td>Shipping</td>
+                    <td align="right"><%= shippingBaseDisplay %></td>
+                  </tr>
+
+                  <tr>
+                    <td>18% GST (Shipping)</td>
+                    <td align="right"><%= shippingTaxDisplay %></td>
+                  </tr>
+
+                  <tr>
+                    <td
+                      colspan="2"
+                      style="
+                        border-top: 2px solid #333;
+                        padding-top: 8px;
+                        font-weight: 700;
+                      "
+                    >
+                      <table width="100%">
+                        <tr>
+                          <td>Payable Amount</td>
+                          <td align="right">
+                            <strong><%= payableDisplay %></strong>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Invoice Note -->
+      <tr>
+        <td
+          style="
+            padding-bottom: 15px;
+            font-size: 13px;
+            color: #333;
+            text-align: center;
+          "
+        >
+          Please note that the original hard copy of the invoice will be sent
+          along with the order at the time of delivery.
+        </td>
+      </tr>
+
+      <!-- Thank You -->
+      <tr>
+        <td
+          align="center"
+          style="
+            font-size: 15px;
+            font-weight: 700;
+            padding: 25px 20px;
+            border-top: 1px solid #ddd;
+          "
+        >
+          Thank You For Your Purchase!
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td style="border-top: 1px solid #e5e5e5; padding: 24px 32px">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="40%" valign="middle">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="30%" valign="middle">
+                      <img
+                        src="/img/dark-logo.png"
+                        style="height: 84px; display: block"
+                      />
+                    </td>
+                    <td
+                      style="
+                        border-left: 2px solid #00000020;
+                        padding-left: 20px;
+                      "
+                    >
+                      <p
+                        style="
+                          font-size: 12px;
+                          line-height: 1.7;
+                          margin: 0;
+                          color: #000000b2;
+                        "
+                      >
+                        <b style="font-weight: 700; font-size: 16px"
+                          >Easy Buy Team</b
+                        ><br />
+                        RZ 448A, Street No 14B, Tughlakabad Extension, New Delhi
+                        -110019<br />
+                        7777901997<br />
+                        onlinesupport@easybuy.com
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td width="35%" align="right" valign="top">
+                <img src="/img/light-logo.png" style="display: block" />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Automated Email Notice -->
+      <tr>
+        <td
+          style="
+            padding: 0px 30px 15px 30px;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+          "
+        >
+          This is an automated email. Please do not reply.
+        </td>
+      </tr>
+
+      <tr>
+        <td
+          style="
+            background: #f0f0f0;
+            margin-top: 20px;
+            padding: 20px 40px;
+            text-align: center;
+          "
+        >
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td
+                align="left"
+                valign="middle"
+                style="font-weight: 600; font-size: 13px"
+              >
+                <a
+                  href="https://www.easybuy.com"
+                  style="
+                    color: black;
+                    text-decoration: none;
+                    display: inline-block;
+                  "
+                >
+                  www.easybuy.com
+                </a>
+              </td>
+              <td align="right" valign="middle">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td>
+                      <a
+                        href="https://www.instagram.com/easybuy_official/"
+                        style="display: inline-block; margin: 0 16px"
+                      >
+                        <img
+                          src="/img/insta.png"
+                          alt="Instagram"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://www.facebook.com/ueasybuydesign/"
+                        style="display: inline-block; margin: 0 16px"
+                      >
+                        <img
+                          src="/img/facebook.png"
+                          alt="Facebook"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://in.linkedin.com/company/easybuy"
+                        style="display: inline-block; margin: 0 16px"
+                      >
+                        <img
+                          src="/img/linkedin.png"
+                          alt="LinkedIn"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://wa.me/7777901997"
+                        style="display: inline-block; margin: 0 16px"
+                      >
+                        <img
+                          src="/img/whatsapp.png"
+                          alt="WhatsApp"
+                          width="22"
+                          height="22"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
